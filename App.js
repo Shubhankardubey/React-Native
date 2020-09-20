@@ -1,42 +1,17 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Button, TextInput, FlatList } from "react-native";
-import GoalItem from "./components/GoalItem";
-import GoalInput from "./components/GoalInput";
+import { StatusBar,SafeAreaView } from "react-native";
 
-export default function App() {
-  
-  const [courseGoals, setCourseGoals] = useState([]);
+import HomeScreen from "./screens/HomeScreen/index";
 
-  const addGoalHandler = goalTitle=>{
-    setCourseGoals(currentGoals=> [...currentGoals,
-      {id: Math.random().toString(), value: goalTitle}
-    ])  
-  }
-  const removeHandler = goalId => {
-    setCourseGoals(currentGoals=>{
-      return currentGoals.filter((goal)=> goal.id !== goalId)
-    })
-  }
-  return (
-    <View style={styles.screen}>
-      <GoalInput onAddGoal={addGoalHandler} />
-      <FlatList
-      keyExtractor = {(item, index)=>item.id}
-      data={courseGoals}
-      renderItem = {itemData=> <GoalItem onDelete={removeHandler.bind(this, itemData.item.id)} title = {itemData.item.value} />}
-      />
-    </View>
-  );
+const App = () => {
+return (
+  <>
+  <StatusBar barStyle="dark-content"></StatusBar>
+  <SafeAreaView>
+  <HomeScreen />
+  </SafeAreaView>
+  </>
+)
 }
 
-const styles = StyleSheet.create({
-  screen: {
-    padding: 50
-  },
-  inputContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center"
-  },
-  input: { borderColor: "black", borderWidth: 1, width: "80%" }
-});
+export default App;

@@ -1,30 +1,34 @@
 {
   "expo": {
-    "name": "First RN APP",
-    "slug": "rn-first-app",
+    "name": "my-app",
+    "description": "",
+    "slug": "my-app",
     "privacy": "public",
     "sdkVersion": "35.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
-    "version": "1.0.0",
+    "platforms": ["android", "ios"],
+    "version": "1.11.2",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "androidStatusBar":{
+      "backgroundColor": "#33aab7"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "packagerOpts": {
+      "assetExts": ["html"]
+    },
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.my.app",
+      "supportsTablet": false,
+      "buildNumber": "19",
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to scan barcodes."
+      }
+    },
+    "android": {
+      "package": "com.my.app",
+      "versionCode": 19
     }
   }
 }
